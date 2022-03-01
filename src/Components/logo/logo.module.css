@@ -1,0 +1,50 @@
+.logoText{
+    font-family: 'Lobster', cursive;
+    /* text-align: center; */
+}
+.Span0{
+    color: #00D039;
+    -webkit-text-stroke: 3px #FCBB01;
+    text-shadow: 3px 3px 3px red;
+}
+.Span1{
+    color: #FB1919;
+    -webkit-text-stroke: 3px #af02d6;
+    text-shadow: 3px 3px 3px rgb(245, 200, 0);
+}
+.Span2{
+    color: #FF68AF;
+    -webkit-text-stroke: 1px #fff;
+    text-shadow: 3px 3px 3px red;
+}
+.Span3{
+    color: #FDEA30;
+    -webkit-text-stroke: 3px #05962A;
+    text-shadow: 3px 3px 3px red;
+}
+.Span4{
+    color: #DE30FD;
+    -webkit-text-stroke: 3px #FF0000;
+    text-shadow: 3px 3px 3px greenyellow;
+}
+@media only screen and (max-width: 750px) {
+    /* For mobile phones: */
+    .logoText{
+        font-size: 12vw;
+    }
+    .Span0{
+        -webkit-text-stroke: 1px #FCBB01;
+    }
+    .Span1{
+        -webkit-text-stroke: 1px #af02d6;
+    }
+    .Span2{
+        -webkit-text-stroke: 1px #fff;
+    }
+    .Span3{
+        -webkit-text-stroke: 1px #05962A;
+    }
+    .Span4{
+        -webkit-text-stroke: 1px #FF0000;
+    }
+}

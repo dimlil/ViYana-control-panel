@@ -1,0 +1,11 @@
+.hamburgerIcon{
+    cursor: pointer;
+    display: none;
+}
+@media only screen and (max-width: 850px) {
+    .hamburgerIcon{
+        display: block !important;
+        padding-top: 25px;
+        width: 35px;
+    }
+}
