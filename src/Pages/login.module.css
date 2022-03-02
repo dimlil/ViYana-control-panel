@@ -1,0 +1,35 @@
+.main{
+    display: flex;
+    justify-content: center;
+    margin: 5.5% 0;
+    font-family: 'Lobster', cursive;
+}
+form div{
+    margin: 10% 0;
+}
+.inputDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #88FFD7;
+    border: 2px solid #00648D;
+    border-radius: 15px;
+    padding: 2.5% 10%;
+}
+.submitBtn{
+    font-family: 'Lobster', cursive;
+    text-decoration: none;
+    background-color: #88FFD7;
+    border: 2px solid #00648D;
+    border-radius: 15px;
+    text-align: center;
+    padding: 10px;
+    /* margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 50px; */
+}
