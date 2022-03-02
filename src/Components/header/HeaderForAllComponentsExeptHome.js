@@ -7,6 +7,9 @@ import Nav from "./Nav";
 import MobileNavigation from "./MobileNavigation";
 
 function HeaderForAllComponentsExeptHome() {
+  const handler = () => {
+    console.log("logout");
+  };
   const [open, setOpen] = useState(false);
   return (
     <div>
@@ -25,21 +28,22 @@ function HeaderForAllComponentsExeptHome() {
           <Logo size="50px" position="left" marginTop="15px" />
         </Link>
         <div className={styles.headerLinksWrapper}>
-          <HomePageNavigationButtons
-            valueFromParent={"Услуги"}
-            link={"/services"}
+        <HomePageNavigationButtons
+            valueFromParent={"Създай статия"}
+            link={"/create"}
+            parentName={"home"}
           />
+          <div style={{display: 'flex'}} onClick={handler}>
+            <HomePageNavigationButtons
+              valueFromParent={"изход"}
+              link={`${window.location.pathname}`}
+              parentName={"home"}
+            />
+          </div>
           <HomePageNavigationButtons
-            valueFromParent={"Защо ранната интервенция е важна?"}
-            link={"/Why-is-early-intervention-important"}
-          />
-          <HomePageNavigationButtons
-            valueFromParent={"Полезно"}
-            link={"/useful"}
-          />
-          <HomePageNavigationButtons
-            valueFromParent={"Контакти"}
-            link={"/contacts"}
+            valueFromParent={"Login"}
+            parentName={"home"}
+            link={"/login"}
           />
         </div>
       </div>
