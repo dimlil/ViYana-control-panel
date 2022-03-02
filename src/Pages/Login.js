@@ -1,10 +1,17 @@
 import React, { useState } from "react";
-import style from './login.module.css'
+import { login } from "../services/login";
+import style from "./login.module.css";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  let navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const signIn = () => {};
+  const signIn = async (e) => {
+    e.preventDefault();
+    const responce = await login(email, password);
+    if (responce) navigate("/");
+  };
   const updatingEmail = (e) => {
     setEmail(e.target.value);
   };
