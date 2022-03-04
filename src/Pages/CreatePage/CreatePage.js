@@ -2,20 +2,20 @@ import React, { useState } from "react";
 import style from "../login.module.css";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import Editor from "./ckeditor/build/ckeditor.js";
+import { createPost } from "../../services/createPost";
+import { useNavigate } from "react-router-dom";
 
 function CreatePage() {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
+  let navigate = useNavigate();
   const updatingTitle = (e) => {
     setTitle(e.target.value);
-    console.log(title);
   };
   const signIn = async (e) => {
     e.preventDefault();
-    console.log(title);
-    console.log(text);
-    // const responce = await login(email, password);
-    // if (responce) navigate("/");
+    const responce = await createPost(title, text);
+    if (responce) navigate("/");
   };
   return (
     <div className={style.main}>
