@@ -1,50 +1,67 @@
-import React, {useState} from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../logo/Logo";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 import HomePageNavigationButtons from "../navigationButtons/HomePageNavigationButtons";
 import Nav from "./Nav";
 import MobileNavigation from "./MobileNavigation";
+import jsCookie from "js-cookie";
+import { Fragment } from "react/cjs/react.production.min";
 
 function HeaderForAllComponentsExeptHome() {
+  const [open, setOpen] = useState(false);
+  const [user, setUser] = useState(jsCookie.get("user"));
+
   const handler = () => {
     console.log("logout");
   };
-  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    setUser(jsCookie.get("user"));
+  }, [user]);
   return (
     <div>
       <div className={styles.headerWrapperForMobileHideShow}>
-        <div className={styles.headerWrapperForMobile} style={{display: "flex !important"}}>
-          <Link to="/" style={{ "textDecoration": "none" }}>
+        <div
+          className={styles.headerWrapperForMobile}
+          style={{ display: "flex !important" }}
+        >
+          <Link to="/" style={{ textDecoration: "none" }}>
             <Logo size="50px" position="left" marginTop="15px" />
           </Link>
-          <Nav isOpen={open} updateOpen={setOpen}/>
+          <Nav isOpen={open} updateOpen={setOpen} />
         </div>
-        <MobileNavigation isOpen={open}/>
+        <MobileNavigation isOpen={open} />
       </div>
 
       <div className={styles.headerWrapper}>
-        <Link to="/" style={{ "textDecoration": "none" }}>
+        <Link to="/" style={{ textDecoration: "none" }}>
           <Logo size="50px" position="left" marginTop="15px" />
         </Link>
         <div className={styles.headerLinksWrapper}>
-        <HomePageNavigationButtons
-            valueFromParent={"Създай статия"}
-            link={"/create"}
-            parentName={"home"}
-          />
-          <div style={{display: 'flex'}} onClick={handler}>
+          {user ? (
+            <Fragment>
+              {" "}
+              <HomePageNavigationButtons
+                valueFromParent={"Създай статия"}
+                link={"/create"}
+                parentName={"home"}
+              />
+              <div style={{ display: "flex" }} onClick={handler}>
+                <HomePageNavigationButtons
+                  valueFromParent={"изход"}
+                  link={`${window.location.pathname}`}
+                  parentName={"home"}
+                />
+              </div>
+            </Fragment>
+          ) : (
             <HomePageNavigationButtons
-              valueFromParent={"изход"}
-              link={`${window.location.pathname}`}
+              valueFromParent={"Login"}
               parentName={"home"}
+              link={"/login"}
             />
-          </div>
-          <HomePageNavigationButtons
-            valueFromParent={"Login"}
-            parentName={"home"}
-            link={"/login"}
-          />
+          )}
         </div>
       </div>
     </div>
