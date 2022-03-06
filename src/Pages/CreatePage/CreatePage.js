@@ -7,33 +7,51 @@ import { useNavigate } from "react-router-dom";
 
 function CreatePage() {
   const [title, setTitle] = useState("");
+  const [about, setAbout] = useState("");
   const [text, setText] = useState("");
   let navigate = useNavigate();
   const updatingTitle = (e) => {
     setTitle(e.target.value);
   };
+  const updatingAbout = (e) => {
+    setAbout(e.target.value);
+  };
   const signIn = async (e) => {
     e.preventDefault();
-    const responce = await createPost(title, text);
+    const responce = await createPost(title, about, text);
     if (responce) navigate("/");
   };
   return (
     <div className={style.main}>
       <form action="#" method="post">
         <h1>Създаване на статия</h1>
-
-        <div className={style.inputDiv}>
-          <input
-            onChange={updatingTitle}
-            type="text"
-            value={title}
-            id="inputUsername"
-            name="title"
-            placeholder="Заглавие на статията"
-            required=""
-            style={{width: '200%'}}
-          />
-          <label htmlFor="inputUsername">Заглавие</label>
+        <div style={{ margin: "5% 0 5% 0" }}>
+          <div className={style.inputDiv} style={{ margin: "0% 0 5% 0" }}>
+            <input
+              onChange={updatingTitle}
+              type="text"
+              value={title}
+              id="inputUsername"
+              name="title"
+              placeholder="Заглавие на статията"
+              required=""
+              style={{ width: "200%" }}
+            />
+            <label htmlFor="inputUsername">Заглавие</label>
+          </div>
+          <div className={style.inputDiv} style={{ margin: "25% 0 5% 0" }}>
+            <input
+              onChange={updatingAbout}
+              type="text"
+              value={about}
+              id="inputUsername"
+              name="about"
+              placeholder="Заглавие на статията"
+              required=""
+              style={{ width: "200%" }}
+            />
+            <label htmlFor="inputUsername">Кратка инфорамация</label>
+          </div>
         </div>
         <CKEditor
           config={{

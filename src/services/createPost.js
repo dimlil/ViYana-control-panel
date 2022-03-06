@@ -2,12 +2,13 @@ import axios from "axios";
 import env from "react-dotenv";
 // import jsCookie from "js-cookie";
 
-export const createPost = async (title, content) => {
+export const createPost = async (title, about, content) => {
   try {
     const responce = await axios.post(
       `${env.API_URL}/create`,
       {
         title,
+        about,
         content,
       },
       { withCredentials: true }
