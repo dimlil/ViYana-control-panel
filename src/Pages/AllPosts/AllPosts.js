@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import env from "react-dotenv";
 import parse from "html-react-parser"
+import styles from './posts.module.css'
 
 function AllPosts() {
   const [posts, setPosts] = useState("");
@@ -19,14 +20,13 @@ function AllPosts() {
   }, []);
   return (
     <div>
-      <p>Hello</p>
-
       {posts ? (
-        <div>
+        <div className={styles.postDiv}>
           {posts.map((post, key) => (
-            <div key={key}>
+            <div key={key} className={styles.post}>
               <h1>{post.title}</h1>
-              <p>{parse(post.content)}</p>
+              <p>{post.about}</p>
+              {/* <p>{parse(post.content)}</p> */}
             </div>
           ))}
         </div>
