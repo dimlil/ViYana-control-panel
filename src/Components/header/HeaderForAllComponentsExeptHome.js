@@ -43,6 +43,11 @@ function HeaderForAllComponentsExeptHome() {
             <Fragment>
               {" "}
               <HomePageNavigationButtons
+                valueFromParent={"Всички статии"}
+                link={"/allPosts"}
+                parentName={"home"}
+              />
+              <HomePageNavigationButtons
                 valueFromParent={"Създай статия"}
                 link={"/create"}
                 parentName={"home"}
