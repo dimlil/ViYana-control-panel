@@ -1,11 +1,10 @@
 import axios from "axios";
-import env from "react-dotenv";
 import jsCookie from "js-cookie";
 
 export const login = async (email, password) => {
   try {
     const responce = await axios.post(
-      `${env.API_URL}/login`,
+      `${process.env.REACT_APP_API_URL}/login`,
       {
         email,
         password,

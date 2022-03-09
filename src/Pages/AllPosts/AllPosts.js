@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import env from "react-dotenv";
-import parse from "html-react-parser"
-import styles from './posts.module.css'
+import styles from "./posts.module.css";
+import { useNavigate } from "react-router-dom";
 
 function AllPosts() {
   const [posts, setPosts] = useState("");
+  let navigate = useNavigate();
   useEffect(() => {
-    const url = `${env.API_URL}/allPosts`;
+    const url = `${process.env.REACT_APP_API_URL}/allPosts`;
     const fetchData = async () => {
       try {
         const response = await axios.get(url);
@@ -18,19 +18,23 @@ function AllPosts() {
     };
     fetchData();
   }, []);
+  const redirecting=(id)=>{
+    navigate(`/posts/${id}`)
+  }
   return (
     <div>
       {posts ? (
         <div className={styles.postDiv}>
           {posts.map((post, key) => (
-            <div key={key} className={styles.post}>
+            <div key={key} className={styles.post} onClick={()=>{redirecting(post._id)}}>
               <h1>{post.title}</h1>
               <p>{post.about}</p>
-              {/* <p>{parse(post.content)}</p> */}
             </div>
           ))}
         </div>
-      ) : <p>Loading...</p>}
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 }
