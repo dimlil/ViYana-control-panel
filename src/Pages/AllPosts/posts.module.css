@@ -15,6 +15,7 @@
     max-width: 50%;
     min-width: 50%;
     font-family: 'Lobster', cursive;
+    cursor: pointer;
 }
 .post h1{
     margin-bottom: 1%;
