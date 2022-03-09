@@ -10,7 +10,7 @@ function Login() {
   const signIn = async (e) => {
     e.preventDefault();
     const responce = await login(email, password);
-    if (responce) navigate("/");
+    if (responce) navigate("/allPosts");
   };
   const updatingEmail = (e) => {
     setEmail(e.target.value);
