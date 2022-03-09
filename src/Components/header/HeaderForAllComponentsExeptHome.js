@@ -15,7 +15,10 @@ function HeaderForAllComponentsExeptHome() {
   const handler = () => {
     console.log("logout");
   };
-
+  useEffect(() => {
+    setUser(jsCookie.get("user"));
+  }, [window.location.pathname])
+  
   useEffect(() => {
     setUser(jsCookie.get("user"));
   }, [user]);
