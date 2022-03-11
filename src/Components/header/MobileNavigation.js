@@ -15,21 +15,30 @@ function MobileNavigation(props) {
   return (
     <div className={styles.componentWrapper}>
       {props.isOpen == true ? (
-        <div>{user ? (
+        <div className={styles.hidenLinks}>
+          {user ? (
             <Fragment>
-              {" "}
-              <HomePageNavigationButtons
-                valueFromParent={"Създай статия"}
-                link={"/create"}
-                parentName={"home"}
-              />
-              <div style={{ display: "flex" }} onClick={handler}>
+              <Fragment>
+                <HomePageNavigationButtons
+                  valueFromParent={"Всички статии"}
+                  link={"/allPosts"}
+                  parentName={"home"}
+                />
+              </Fragment>
+              <Fragment>
+                <HomePageNavigationButtons
+                  valueFromParent={"Създай статия"}
+                  link={"/create"}
+                  parentName={"home"}
+                />
+              </Fragment>
+              <Fragment style={{ display: "flex" }} onClick={handler}>
                 <HomePageNavigationButtons
                   valueFromParent={"изход"}
                   link={`${window.location.pathname}`}
                   parentName={"home"}
                 />
-              </div>
+              </Fragment>
             </Fragment>
           ) : (
             <HomePageNavigationButtons
@@ -37,7 +46,8 @@ function MobileNavigation(props) {
               parentName={"home"}
               link={"/login"}
             />
-          )}</div>
+          )}
+        </div>
       ) : (
         <div></div>
       )}

@@ -33,7 +33,10 @@
     display: flex;
     justify-content: center;
 }
-
+.hidenLinks{
+    display: flex;
+    flex-direction: column;
+}
 @media only screen and (max-width: 750px) {
 
     /* For mobile phones: */
