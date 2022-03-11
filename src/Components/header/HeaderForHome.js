@@ -2,7 +2,6 @@ import React from "react";
 import Logo from "../logo/Logo";
 import styles from "./Header.module.css";
 import HomePageNavigationButtons from "../navigationButtons/HomePageNavigationButtons";
-import styles2 from "./MainHeader.module.css";
 
 function HeaderForHome() {
   const handler = () => {
