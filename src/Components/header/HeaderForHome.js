@@ -4,9 +4,6 @@ import styles from "./Header.module.css";
 import HomePageNavigationButtons from "../navigationButtons/HomePageNavigationButtons";
 
 function HeaderForHome() {
-  const handler = () => {
-    console.log("logout");
-  };
   return (
     <div className={styles.main}>
       <div className={styles.logoDiv}>
