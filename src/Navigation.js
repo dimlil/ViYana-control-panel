@@ -6,6 +6,7 @@ import CreatePage from "./Pages/CreatePage/CreatePage";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import PostPage from "./Pages/PostPage/PostPage";
+import RouteProtection from "./RouteProtection";
 
 function Navigation() {
   return (
@@ -15,9 +16,30 @@ function Navigation() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/create" element={<CreatePage />} />
-          <Route path="/allPosts" element={<AllPosts />} />
-          <Route path="/posts/:id" element={<PostPage />} />
+          <Route
+            path="/create"
+            element={
+              <RouteProtection>
+                <CreatePage />
+              </RouteProtection>
+            }
+          />
+          <Route
+            path="/allPosts"
+            element={
+              <RouteProtection>
+                <AllPosts />
+              </RouteProtection>
+            }
+          />
+          <Route
+            path="/posts/:id"
+            element={
+              <RouteProtection>
+                <PostPage />
+              </RouteProtection>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>
