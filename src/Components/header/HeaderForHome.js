@@ -9,7 +9,7 @@ function HeaderForHome() {
     console.log("logout");
   };
   return (
-    <div className={styles2.main}>
+    <div className={styles.main}>
       <div className={styles.logoDiv}>
         <Logo size="100px" position="center" />
         <p className={styles.moto}>Детски терапевтичен и игрови център</p>
