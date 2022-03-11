@@ -33,9 +33,7 @@ function MobileNavigation(props) {
                   parentName={"home"}
                 />
               </Fragment>
-              <Fragment style={{ display: "flex" }} onClick={handler}>
-                <Logout />
-              </Fragment>
+              <Logout />
             </Fragment>
           ) : (
             <HomePageNavigationButtons

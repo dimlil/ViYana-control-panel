@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Fragment } from "react/cjs/react.production.min";
 import { logout } from "../../services/logout";
 import HomePageNavigationButtons from "../navigationButtons/HomePageNavigationButtons";
 
@@ -12,13 +11,13 @@ function Logout() {
     navigate("/");
   };
   return (
-    <Fragment style={{ display: "flex" }} onClick={handler}>
+    <div style={{ display: "flex", flexDirection: "column" }} onClick={handler}>
       <HomePageNavigationButtons
         valueFromParent={"Изход"}
         link={`${window.location.pathname}`}
         parentName={"home"}
       />
-    </Fragment>
+    </div>
   );
 }
 
