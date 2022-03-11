@@ -7,9 +7,9 @@ import Logout from "./Logout";
 
 function MobileNavigation(props) {
   const [user, setUser] = useState(jsCookie.get("user"));
-  const handler = () => {
-    console.log("logout");
-  };
+  useEffect(() => {
+    setUser(jsCookie.get("user"));
+  }, [window.location.pathname]);
   useEffect(() => {
     setUser(jsCookie.get("user"));
   }, [user]);
