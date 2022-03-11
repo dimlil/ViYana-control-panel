@@ -3,6 +3,7 @@ import styles from "./Header.module.css";
 import HomePageNavigationButtons from "../navigationButtons/HomePageNavigationButtons";
 import { Fragment } from "react/cjs/react.production.min";
 import jsCookie from "js-cookie";
+import Logout from "./Logout";
 
 function MobileNavigation(props) {
   const [user, setUser] = useState(jsCookie.get("user"));
@@ -33,11 +34,7 @@ function MobileNavigation(props) {
                 />
               </Fragment>
               <Fragment style={{ display: "flex" }} onClick={handler}>
-                <HomePageNavigationButtons
-                  valueFromParent={"изход"}
-                  link={`${window.location.pathname}`}
-                  parentName={"home"}
-                />
+                <Logout />
               </Fragment>
             </Fragment>
           ) : (

@@ -1,23 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Logo from "../logo/Logo";
 import styles from "./Header.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import HomePageNavigationButtons from "../navigationButtons/HomePageNavigationButtons";
 import Nav from "./Nav";
 import MobileNavigation from "./MobileNavigation";
 import jsCookie from "js-cookie";
 import { Fragment } from "react/cjs/react.production.min";
-import { logout } from "../../services/logout";
+import Logout from "./Logout";
 
 function HeaderForAllComponentsExeptHome() {
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState(jsCookie.get("user"));
-  const navigate=useNavigate()
-
-  const handler = () => {
-    logout();
-    navigate('/')
-  };
   useEffect(() => {
     setUser(jsCookie.get("user"));
   }, [window.location.pathname])
@@ -58,13 +52,7 @@ function HeaderForAllComponentsExeptHome() {
                 link={"/create"}
                 parentName={"home"}
               />
-              <div style={{ display: "flex" }} onClick={handler}>
-                <HomePageNavigationButtons
-                  valueFromParent={"изход"}
-                  link={`${window.location.pathname}`}
-                  parentName={"home"}
-                />
-              </div>
+              <Logout />
             </Fragment>
           ) : (
             <HomePageNavigationButtons
