@@ -16,7 +16,7 @@ function CreatePage() {
   const updatingAbout = (e) => {
     setAbout(e.target.value);
   };
-  const signIn = async (e) => {
+  const create = async (e) => {
     e.preventDefault();
     const responce = await createPost(title, about, text);
     if (responce) navigate("/allPosts");
@@ -95,8 +95,8 @@ function CreatePage() {
             setText(data);
           }}
         />
-        <button onClick={signIn} type="submit" className={style.submitBtn}>
-          Sign In
+        <button onClick={create} type="submit" className={style.submitBtn}>
+          Създай
         </button>
       </form>
     </div>
