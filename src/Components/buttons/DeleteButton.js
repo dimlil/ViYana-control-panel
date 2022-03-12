@@ -5,10 +5,11 @@ import styles from "./buttons.module.css";
 
 function DeleteButton() {
   const params = useParams();
-  const navigate = useNavigate()
-  const DeleteHandle = () => {
-    if (deletePostService(params.id)) {
-      navigate('/allPosts')
+  const navigate = useNavigate();
+  const DeleteHandle = async () => {
+    const responce = await deletePostService(params.id);
+    if (responce) {
+      navigate("/allPosts");
     }
   };
   return (
