@@ -11,7 +11,6 @@ export const createPost = async (title, about, content) => {
       },
       { withCredentials: true }
     );
-    console.log(responce.data);
     return true;
   } catch (error) {
     console.log(error);

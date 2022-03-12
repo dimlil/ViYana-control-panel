@@ -19,7 +19,7 @@ function CreatePage() {
   const signIn = async (e) => {
     e.preventDefault();
     const responce = await createPost(title, about, text);
-    if (responce) navigate("/");
+    if (responce) navigate("/allPosts");
   };
   return (
     <div className={style.main}>
