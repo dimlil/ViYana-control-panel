@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import parse from "html-react-parser";
+import DeleteButton from "../../Components/buttons/DeleteButton";
+import EditButton from "../../Components/buttons/EditButton";
+import styles from './post.module.css'
 
 function PostPage() {
   const [post, setPost] = useState("");
-    let { id } = useParams();
+  let { id } = useParams();
   useEffect(() => {
     const url = `${process.env.REACT_APP_API_URL}/post/${id}`;
     const fetchData = async () => {
@@ -20,6 +23,10 @@ function PostPage() {
   }, []);
   return (
     <div>
+      <div className={styles.buttonsWrapper}>
+        <EditButton />
+        <DeleteButton />
+      </div>
       {post ? (
         <div>
           {post.map((p, key) => (
