@@ -5,6 +5,18 @@
     font-family: 'Lobster', cursive;
 }
 
+.mainCreate {
+    display: block;
+    margin: 5.5% 0;
+    font-family: 'Lobster', cursive;
+}
+
+.editor {
+    display: inline;
+    width: 100vw;
+    margin: 0;
+}
+
 form {
     display: flex;
     flex-direction: column;
