@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./Components/header/Header";
 import AllPosts from "./Pages/AllPosts/AllPosts";
 import CreatePage from "./Pages/CreatePage/CreatePage";
+import EditPage from "./Pages/Edit/EditPage";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import PostPage from "./Pages/PostPage/PostPage";
@@ -37,6 +38,14 @@ function Navigation() {
             element={
               <RouteProtection>
                 <PostPage />
+              </RouteProtection>
+            }
+          />
+          <Route
+            path="/edit/:id"
+            element={
+              <RouteProtection>
+                <EditPage />
               </RouteProtection>
             }
           />

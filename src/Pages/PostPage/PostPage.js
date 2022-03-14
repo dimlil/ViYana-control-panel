@@ -24,7 +24,7 @@ function PostPage() {
   return (
     <div>
       <div className={styles.buttonsWrapper}>
-        <EditButton />
+        <EditButton id={id} />
         <DeleteButton />
       </div>
       {post ? (
