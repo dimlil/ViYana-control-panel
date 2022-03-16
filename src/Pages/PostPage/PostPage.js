@@ -31,7 +31,7 @@ function PostPage() {
         <div>
           {post.map((p, key) => (
             <div key={key}>
-              <h1>{p.title}</h1>
+              <h1 style={{textAlign: 'center'}}>{p.title}</h1>
               <p>{p.about}</p>
               {parse(p.content)}
             </div>
