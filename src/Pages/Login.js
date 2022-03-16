@@ -47,6 +47,7 @@ function Login() {
             name="password"
             placeholder="Password"
             required=""
+            autoComplete="on"
           />
           <label htmlFor="inputPassword">Password</label>
         </div>
